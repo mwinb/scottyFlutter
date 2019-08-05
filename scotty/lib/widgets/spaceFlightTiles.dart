@@ -18,9 +18,8 @@ class SpaceFlightTile extends StatelessWidget {
             Image.network(_spaceFlightNews.featuredImage, height: 200.0, fit: BoxFit.fill),
         
         ),
-        onTap: () => {
+        onTap: () => 
           _launchURL(_spaceFlightNews.url),
-        }
       ),
       Divider()
     ],

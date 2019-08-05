@@ -5,8 +5,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:scotty/screens/spaceFlightNewsScreen.dart';
-import 'package:scotty/theme/style.dart';
-import 'package:scotty/widgets//dashboard.dart';
+import 'package:scotty/widgets/dashboard.dart';
+import 'package:scotty/widgets/nasaLiveStream.dart';
 
 void main() => runApp(new MyApp());
 
@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => Dashboard(),
         '/spaceFlightNews': (context) => SpaceFlightNewsScreen(),
+        '/nasaLiveStream': (context) => NasaLiveStream(),
         '/hubbleLiveFeed': (context) => Dashboard(),
       },
     );
