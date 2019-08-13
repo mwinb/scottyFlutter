@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scotty/requests/spaceFlightNewsRequest.dart';
-import 'package:scotty/models/spaceFlightNews.dart';
+import 'package:scotty/models/SpaceFlightNewsModel.dart';
 import 'package:scotty/widgets/spaceFlightTiles.dart';
 
 class SpaceFlightNewsScreen extends StatefulWidget {
@@ -34,8 +34,8 @@ class _SpaceFlightNewsScreenState extends State<SpaceFlightNewsScreen> {
     for (var item in stream) {
       _articles.add(item);
     }
-    setState(() => {
+    setState(() =>
       _articles
-    });
+    );
   }
 }

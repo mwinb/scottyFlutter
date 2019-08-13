@@ -4,9 +4,12 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:scotty/screens/astroBinScreen.dart';
 import 'package:scotty/screens/spaceFlightNewsScreen.dart';
+import 'package:scotty/screens/launchLibraryScreen.dart';
 import 'package:scotty/widgets/dashboard.dart';
 import 'package:scotty/widgets/nasaLiveStream.dart';
+import 'package:scotty/theme/style.dart';
 
 void main() => runApp(new MyApp());
 
@@ -22,7 +25,10 @@ class MyApp extends StatelessWidget {
         '/spaceFlightNews': (context) => SpaceFlightNewsScreen(),
         '/nasaLiveStream': (context) => NasaLiveStream(),
         '/hubbleLiveFeed': (context) => Dashboard(),
+        '/astroBin': (context) => AstroBinScreen(),
+        '/launchLibrary': (context) => LaunchLibraryScreen(),
       },
+      theme: scottyTheme(),
     );
   }
 }

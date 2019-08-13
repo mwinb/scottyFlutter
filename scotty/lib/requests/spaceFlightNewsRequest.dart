@@ -1,7 +1,7 @@
 
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:scotty/models/spaceFlightNews.dart';
+import 'package:scotty/models/SpaceFlightNewsModel.dart';
 
 Future<List<SpaceFlightNews>> getSpaceFlightArticles() async {
   final String url = 'https://spaceflightnewsapi.net/api/v1/articles?limit=200';

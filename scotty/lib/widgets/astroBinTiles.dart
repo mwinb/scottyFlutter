@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:scotty/models/SpaceFlightNewsModel.dart';
+import 'package:scotty/models/AstroBinModel.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SpaceFlightTile extends StatelessWidget {
-  final SpaceFlightNews _spaceFlightNews;
-
-  SpaceFlightTile(this._spaceFlightNews);
+class AstroBinTile extends StatelessWidget {
+  final AstroBinModel _astroBinModel;
+  AstroBinTile(this._astroBinModel);
 
   @override
   Widget build(BuildContext context) =>
       Column(
-        children: <Widget>[ makeSpaceFlightCard(_spaceFlightNews),
+        children: <Widget>[ makeAstroBinCard(_astroBinModel),
         ],
       );
 }
 
-Card makeSpaceFlightCard(SpaceFlightNews article) {
+Card makeAstroBinCard(AstroBinModel article) {
   return Card(
       elevation: 1.0,
       margin: new EdgeInsets.all(8.0),
@@ -23,7 +22,7 @@ Card makeSpaceFlightCard(SpaceFlightNews article) {
         decoration: BoxDecoration(color: Colors.black),
         child: new InkWell(
           onTap: () {
-            _launchURL(article.url);
+            _launchURL(article.urlHD);
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -33,8 +32,9 @@ Card makeSpaceFlightCard(SpaceFlightNews article) {
               SizedBox(height: 50.0),
               Center(
                   child: Image.network(
-                      article.featuredImage,
-                    height: 200.0,
+                    article.urlHD,
+                    height: 500.0,
+                    width: 500.0,
                     fit: BoxFit.fill,
                   )),
               SizedBox(height: 20.0),
@@ -45,9 +45,18 @@ Card makeSpaceFlightCard(SpaceFlightNews article) {
               ),
               SizedBox(height: 20.0),
               new Center(
-                child: new Text(article.newsSiteLong,
+                child: new Text(article.published,
                   style:
                   new TextStyle(fontSize: 18.0, color: Colors.white,), textAlign: TextAlign.center,),
+              ),
+              SizedBox(height: 20.0),
+              new InkWell(
+                onTap: () {
+                  _launchURL("https://www.astrobin.com/users/${article.user}");
+                },
+                child: new Text(article.user,
+                  style:
+                  new TextStyle(fontSize: 18.0, color: Colors.blue, decoration: TextDecoration.underline), textAlign: TextAlign.center,),
               ),
               SizedBox(height: 20.0),
             ],
