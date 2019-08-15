@@ -31,7 +31,7 @@ class _DashboardState extends State<Dashboard> {
 List<Widget> makeCardList(BuildContext context) {
   return [
     makeDashboardItem("Nasa Live", Icons.satellite, context, '/nasaLiveStream'),
-    makeDashboardItem("Nasa Image of the Day", Icons.satellite, context, '/nasaIOTD'),
+    makeDashboardItem("Nasa Image of the Day", Icons.satellite, context, '/IOTD'),
     makeDashboardItem("Astro Bin Gallery", Icons.star, context, '/astroBin'),
     makeDashboardItem("Space Flight News", Icons.airplanemode_active, context, '/spaceFlightNews'),
     makeDashboardItem("Launch Schedule", Icons.airplanemode_active, context, '/launchLibrary'),

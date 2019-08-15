@@ -10,14 +10,11 @@ class AstroBinScreen extends StatefulWidget {
 
 class _AstroBinScreenState extends State<AstroBinScreen> {
   List<AstroBinModel> _articles = <AstroBinModel>[];
-
   @override
   void initState() {
     super.initState();
     listenForAstroBinPhotos();
   }
-
-
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -25,18 +22,27 @@ class _AstroBinScreenState extends State<AstroBinScreen> {
       centerTitle: true,
       title: Text('Astro Bin Gallery'),
     ),
-    body: ListView.builder(
-      itemCount: _articles.length,
-      itemBuilder: (context, index) => AstroBinTile(_articles[index]),
-    ),
+    body: _buildBody(),
   );
+
+  Widget _buildBody() {
+    if(_articles.length > 0) {
+      return ListView.builder(
+        itemCount: _articles.length,
+        itemBuilder: (context, index) => AstroBinTile(_articles[index]),
+      );
+    } else {
+      return new Center(
+          child: new CircularProgressIndicator());
+    }
+  }
 
   void listenForAstroBinPhotos() async {
     final stream = await getAstroBinPhotos();
     for (var item in stream) {
       _articles.add(item);
     }
-    setState(() => 
+    setState(() =>
       _articles
     );
   }
