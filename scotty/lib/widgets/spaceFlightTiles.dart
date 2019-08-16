@@ -20,7 +20,7 @@ Card makeSpaceFlightCard(SpaceFlightNews article) {
       elevation: 1.0,
       margin: new EdgeInsets.all(8.0),
       child: Container(
-        decoration: BoxDecoration(color: Colors.black),
+        decoration: BoxDecoration(color: Colors.black87),
         child: new InkWell(
           onTap: () {
             _launchURL(article.url);
@@ -46,6 +46,12 @@ Card makeSpaceFlightCard(SpaceFlightNews article) {
               SizedBox(height: 20.0),
               new Center(
                 child: new Text(article.newsSiteLong,
+                  style:
+                  new TextStyle(fontSize: 18.0, color: Colors.white,), textAlign: TextAlign.center,),
+              ),
+              SizedBox(height: 20.0),
+              new Center(
+                child: new Text(article.date,
                   style:
                   new TextStyle(fontSize: 18.0, color: Colors.white,), textAlign: TextAlign.center,),
               ),

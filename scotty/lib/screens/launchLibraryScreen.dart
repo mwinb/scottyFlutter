@@ -21,7 +21,7 @@ class _LaunchLibraryScreenState extends State<LaunchLibraryScreen> {
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
       centerTitle: true,
-      title: Text('Launch Library'),
+      title: Text('Launch Schedule'),
     ),
     body: ListView.builder(
       itemCount: _launches.length,
