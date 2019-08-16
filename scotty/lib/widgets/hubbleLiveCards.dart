@@ -21,7 +21,7 @@ _launchURL(url) async {
   }
 }
 
-Card makeHubbleLiveFeedCard(HubbleLiveFeedModel feed, BuildContext context) {
+Widget makeHubbleLiveFeedCard(HubbleLiveFeedModel feed, BuildContext context) {
   return Card(
       margin: new EdgeInsets.all(8.0),
       child: Container(
@@ -37,7 +37,6 @@ Card makeHubbleLiveFeedCard(HubbleLiveFeedModel feed, BuildContext context) {
               mainAxisSize: MainAxisSize.min,
               verticalDirection: VerticalDirection.down,
               children: <Widget>[
-                SizedBox(height: 50.0),
                 Center(
                   child: new Image(
                     image: NetworkImageSSL('http:${feed.image}'),

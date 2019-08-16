@@ -9,17 +9,17 @@ class AstroBinTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
       Column(
-        children: <Widget>[ makeAstroBinCard(_astroBinModel),
+        children: <Widget>[ makeAstroBinCard(_astroBinModel, context),
         ],
       );
 }
 
-Card makeAstroBinCard(AstroBinModel article) {
+Widget makeAstroBinCard(AstroBinModel article, BuildContext context) {
   return Card(
       elevation: 1.0,
       margin: new EdgeInsets.all(8.0),
       child: Container(
-        decoration: BoxDecoration(color: Colors.black),
+        decoration: BoxDecoration(color: Colors.black87),
         child: new InkWell(
           onTap: () {
             _launchURL(article.urlHD);

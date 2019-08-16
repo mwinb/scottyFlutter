@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class Dashboard extends StatefulWidget {
   @override
@@ -30,7 +32,7 @@ class _DashboardState extends State<Dashboard> {
 
 List<Widget> makeCardList(BuildContext context) {
   return [
-    makeDashboardItem("Nasa Live", Icons.satellite, context, '/nasaLiveStream'),
+    makeDashboardItem("Nasa Live", Icons.satellite, context, 'https://www.youtube.com/embed/21X5lGlDOfg?cc_load_policy=1&autoplay=1&mute=1'),
     makeDashboardItem("Nasa Image of the Day", Icons.satellite, context, '/IOTD'),
     makeDashboardItem("Astro Bin Gallery", Icons.star, context, '/astroBin'),
     makeDashboardItem("Space Flight News", Icons.airplanemode_active, context, '/spaceFlightNews'),
@@ -38,6 +40,7 @@ List<Widget> makeCardList(BuildContext context) {
     makeDashboardItem("Hubble Live Feed", Icons.brightness_2, context, '/hubbleLiveFeed'),
   ];
 }
+
 Card makeDashboardItem(String title, IconData icon, BuildContext context, String route) {
   return Card(
       elevation: 1.0,
@@ -46,7 +49,7 @@ Card makeDashboardItem(String title, IconData icon, BuildContext context, String
         decoration: BoxDecoration(color: Colors.black87),
         child: new InkWell(
           onTap: () {
-            Navigator.pushNamed(context, route);
+            executeLocation(context, route);
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -70,4 +73,19 @@ Card makeDashboardItem(String title, IconData icon, BuildContext context, String
           ),
         ),
       ));
+}
+
+void executeLocation(BuildContext context, String route) {
+  if (route.contains('https'))
+    _launchURL(route);
+  else
+    Navigator.pushNamed(context, route);
+}
+
+_launchURL(url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
 }

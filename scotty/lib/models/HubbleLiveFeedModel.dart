@@ -6,7 +6,7 @@ class HubbleLiveFeedModel {
   final String articleLink;
 
   HubbleLiveFeedModel.fromJSON(Map<String, dynamic> jsonMap) :
-        image = jsonMap['image_square_large'],
+        image = jsonMap['image_square'],
         title = jsonMap["title"],
         description = jsonMap["description"],
         publicationDate = jsonMap["pub_date"],
