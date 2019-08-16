@@ -9,7 +9,13 @@ class HubbleLiveFeedModel {
         image = jsonMap['image_square'],
         title = jsonMap["title"],
         description = jsonMap["description"],
-        publicationDate = jsonMap["pub_date"],
+        publicationDate = getBetterDate(jsonMap["pub_date"]),
         articleLink = jsonMap["link"];
 
+  static String getBetterDate(String ogDate) {
+    DateTime newDate = DateTime.parse(ogDate);
+    String newDateString = newDate.toLocal().toString();
+    int stringOffset = newDateString.length - 4;
+    return newDateString.substring(0, stringOffset);
+  }
 }

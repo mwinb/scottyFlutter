@@ -78,6 +78,7 @@ Widget makeHubbleLiveFeedCard(HubbleLiveFeedModel feed, BuildContext context) {
                     textAlign: TextAlign.center,
                   ),
                 ),
+                SizedBox(height: 20.0),
               ]
             )
           )

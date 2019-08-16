@@ -34,10 +34,10 @@ class _IOTDScreenState extends State<IOTDScreen> {
     }
     if (_image.mediaType == 'image') {
       widget = InkWell(
-          onTap: () {
-            _launchURL('https://apod.nasa.gov/apod/astropix.html');
-          },
-          child: Container(
+        onTap: () {
+          _launchURL('https://apod.nasa.gov/apod/astropix.html');
+        },
+        child: Container(
             constraints: new BoxConstraints.expand(
               height: MediaQuery.of(context).size.height,
             ),
@@ -48,15 +48,62 @@ class _IOTDScreenState extends State<IOTDScreen> {
                 fit: BoxFit.cover,
               ),
             ),
-            child: new Text(
-                'Title: ${_image.title}\n'
-                'Copywrite: ${_image.copyright}',
-                style: new TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20.0,
-                  color: Colors.white,
-                )),
-          ));
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                verticalDirection: VerticalDirection.down,
+                children: <Widget>[
+                  new Center(
+                    child: new Text(
+                      _image.title,
+                      style: new TextStyle(
+                        fontSize: 18.0,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  new Center(
+                    child: new Text(
+                      _image.copyright,
+                      style: new TextStyle(
+                        fontSize: 18.0,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  )])));
+      // widget = InkWell(
+      //     onTap: () {
+      //       _launchURL('https://apod.nasa.gov/apod/astropix.html');
+      //     },
+      //     child: Column(
+      //           crossAxisAlignment: CrossAxisAlignment.center,
+      //           mainAxisSize: MainAxisSize.min,
+      //           verticalDirection: VerticalDirection.down,
+      //           children: <Widget>[
+      //             new Center(
+      //               child: new Text(
+      //                 _image.title,
+      //                 style: new TextStyle(
+      //                   fontSize: 18.0,
+      //                   color: Colors.white,
+      //                 ),
+      //                 textAlign: TextAlign.center,
+      //               ),
+      //             ),
+      //             new Center(
+      //               child: new Text(
+      //                 _image.copyright,
+      //                 style: new TextStyle(
+      //                   fontSize: 18.0,
+      //                   color: Colors.white,
+      //                 ),
+      //                 textAlign: TextAlign.center,
+      //               ),
+      //             ),
+      //           ]
+      //       ));
     } else if (_image.mediaType == 'video') {
       widget = YoutubePlayer(
         context: context,

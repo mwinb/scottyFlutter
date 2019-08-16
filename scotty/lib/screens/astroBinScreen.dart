@@ -21,7 +21,7 @@ class _AstroBinScreenState extends State<AstroBinScreen> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text('Astro Bin Gallery'),
+          title: Text('AstroBin Astronomy Photos'),
         ),
         body: _buildBody(context),
       );

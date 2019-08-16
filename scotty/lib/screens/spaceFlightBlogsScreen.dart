@@ -3,12 +3,12 @@ import 'package:scotty/requests/spaceFlightNewsRequest.dart';
 import 'package:scotty/models/SpaceFlightNewsModel.dart';
 import 'package:scotty/widgets/spaceFlightTiles.dart';
 
-class SpaceFlightNewsScreen extends StatefulWidget {
+class SpaceFlightBlogsScreen extends StatefulWidget {
   @override
-  _SpaceFlightNewsScreenState createState() => _SpaceFlightNewsScreenState();
+  _SpaceFlightBlogsScreenState createState() => _SpaceFlightBlogsScreenState();
 }
 
-class _SpaceFlightNewsScreenState extends State<SpaceFlightNewsScreen> {
+class _SpaceFlightBlogsScreenState extends State<SpaceFlightBlogsScreen> {
   List<SpaceFlightNews> _articles = <SpaceFlightNews>[];
 
   @override
@@ -21,7 +21,7 @@ class _SpaceFlightNewsScreenState extends State<SpaceFlightNewsScreen> {
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
       centerTitle: true,
-      title: Text('Space Flight News'),
+      title: Text('Space Flight Blogs'),
     ),
     body: ListView.builder(
       itemCount: _articles.length,
@@ -30,7 +30,7 @@ class _SpaceFlightNewsScreenState extends State<SpaceFlightNewsScreen> {
   );
 
   void listenForSpaceFlightArticles() async {
-    final stream = await getSpaceFlightArticles('https://spaceflightnewsapi.net/api/v1/articles?limit=200');
+    final stream = await getSpaceFlightArticles('https://spaceflightnewsapi.net/api/v1/blogs?limit=200');
     for (var item in stream) {
       _articles.add(item);
     }

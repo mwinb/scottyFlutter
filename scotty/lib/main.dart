@@ -3,7 +3,9 @@
 // found in the LICENSE file.
 import 'package:flutter/material.dart';
 import 'package:scotty/screens/astroBinScreen.dart';
+import 'package:scotty/screens/spaceFlightBlogsScreen.dart';
 import 'package:scotty/screens/spaceFlightNewsScreen.dart';
+import 'package:scotty/screens/spaceFlightReportsScreen.dart';
 import 'package:scotty/screens/launchLibraryScreen.dart';
 import 'package:scotty/screens/HubbleFeedScreen.dart';
 import 'package:scotty/screens/IOTDScreen.dart';
@@ -23,6 +25,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => Dashboard(),
         '/spaceFlightNews': (context) => SpaceFlightNewsScreen(),
+        '/spaceFlightBlogs': (context) => SpaceFlightBlogsScreen(),
+        '/spaceFlightReports': (context) => SpaceFlightReportsScreen(),
         '/nasaLiveStream': (context) => NasaLiveStream(),
         '/hubbleLiveFeed': (context) => HubbleFeedScreen(),
         '/astroBin': (context) => AstroBinScreen(),

@@ -32,10 +32,12 @@ class _DashboardState extends State<Dashboard> {
 
 List<Widget> makeCardList(BuildContext context) {
   return [
-    makeDashboardItem("Nasa Live", Icons.satellite, context, 'https://www.youtube.com/embed/21X5lGlDOfg?cc_load_policy=1&autoplay=1&mute=1'),
-    makeDashboardItem("Nasa Image of the Day", Icons.satellite, context, '/IOTD'),
-    makeDashboardItem("Astro Bin Gallery", Icons.star, context, '/astroBin'),
+    makeDashboardItem("NASA Live", Icons.satellite, context, 'https://www.youtube.com/embed/21X5lGlDOfg?cc_load_policy=1&autoplay=1&mute=1'),
+    makeDashboardItem("NASA Image of the Day", Icons.satellite, context, '/IOTD'),    
+    makeDashboardItem("AstroBin Astronomy Photos", Icons.star, context, '/astroBin'),
     makeDashboardItem("Space Flight News", Icons.airplanemode_active, context, '/spaceFlightNews'),
+    makeDashboardItem("Space Flight Blogs", Icons.airplanemode_active, context, '/spaceFlightBlogs'),
+    makeDashboardItem("Space Flight Reports", Icons.airplanemode_active, context, '/spaceFlightReports'),
     makeDashboardItem("Launch Schedule", Icons.airplanemode_active, context, '/launchLibrary'),
     makeDashboardItem("Hubble Live Feed", Icons.brightness_2, context, '/hubbleLiveFeed'),
   ];
