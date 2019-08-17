@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'package:scotty/models/Utilities.dart';
 
 class SpaceFlightNews {
   final String featuredImage;
@@ -8,19 +8,13 @@ class SpaceFlightNews {
   final String date;
 
   SpaceFlightNews.fromJSON(Map<String, dynamic> jsonMap) :
-    featuredImage = jsonMap['featured_image'],
-    title = jsonMap['title'],
-    newsSiteLong = jsonMap['news_site_long'],
-    url = jsonMap['url'],
-    date = getDateString(jsonMap['date_published']);
-
-  static String getDateString(int dateInMills) {
-    int zeroOffSet = 7;
-    int trailing = pow(10, 3);
-    int fullDateInMills = dateInMills * trailing;
-    String datePublished = new DateTime.fromMillisecondsSinceEpoch(fullDateInMills).toLocal().toString();
-    return datePublished.substring(0, datePublished.length-zeroOffSet);
-  }
+    featuredImage = Utilities.verifyJsonString(jsonMap, 'featured_image'),
+    title = Utilities.verifyJsonString(jsonMap, 'title'),
+    newsSiteLong = Utilities.verifyJsonString(jsonMap, 'news_site_long'),
+    url = Utilities.verifyJsonString(jsonMap, 'url'),
+    date = Utilities.getDateStringFromPartialMills(
+      jsonMap['date_published']
+    );
 }
 
 

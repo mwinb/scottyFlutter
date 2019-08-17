@@ -1,3 +1,5 @@
+import 'package:scotty/models/Utilities.dart';
+
 class AstroBinModel {
   final String urlHD;
   final String title;
@@ -5,8 +7,8 @@ class AstroBinModel {
   final String user;
 
   AstroBinModel.fromJSON(Map<String, dynamic> jsonMap) :
-    urlHD = jsonMap['url_hd'],
-    title = jsonMap['title'],
-    published = jsonMap['published'],
-    user = jsonMap['user'];
+    urlHD = Utilities.verifyJsonString(jsonMap, 'url_hd'),
+    title = Utilities.verifyJsonString(jsonMap, 'title'),
+    published = Utilities.verifyJsonString(jsonMap, 'published'),
+    user = Utilities.verifyJsonString(jsonMap, 'user');
 }

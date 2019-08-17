@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scotty/requests/IOTDRequest.dart';
 import 'package:scotty/models/IOTDModel.dart';
-import 'package:youtube_player/youtube_player.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class IOTDScreen extends StatefulWidget {
@@ -73,45 +72,9 @@ class _IOTDScreenState extends State<IOTDScreen> {
                       textAlign: TextAlign.center,
                     ),
                   )])));
-      // widget = InkWell(
-      //     onTap: () {
-      //       _launchURL('https://apod.nasa.gov/apod/astropix.html');
-      //     },
-      //     child: Column(
-      //           crossAxisAlignment: CrossAxisAlignment.center,
-      //           mainAxisSize: MainAxisSize.min,
-      //           verticalDirection: VerticalDirection.down,
-      //           children: <Widget>[
-      //             new Center(
-      //               child: new Text(
-      //                 _image.title,
-      //                 style: new TextStyle(
-      //                   fontSize: 18.0,
-      //                   color: Colors.white,
-      //                 ),
-      //                 textAlign: TextAlign.center,
-      //               ),
-      //             ),
-      //             new Center(
-      //               child: new Text(
-      //                 _image.copyright,
-      //                 style: new TextStyle(
-      //                   fontSize: 18.0,
-      //                   color: Colors.white,
-      //                 ),
-      //                 textAlign: TextAlign.center,
-      //               ),
-      //             ),
-      //           ]
-      //       ));
+
     } else if (_image.mediaType == 'video') {
-      widget = YoutubePlayer(
-        context: context,
-        source: "21X5lGlDOfg?cc_load_policy=1&autoplay=1&mute=1",
-        quality: YoutubeQuality.HIGH,
-        playerMode: YoutubePlayerMode.DEFAULT,
-        isLive: true,
-      );
+      _launchURL(_image.url);
     }
     return widget;
   }

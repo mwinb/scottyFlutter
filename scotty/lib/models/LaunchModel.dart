@@ -1,3 +1,5 @@
+import 'package:scotty/models/Utilities.dart';
+
 class LaunchModel {
   final String launchImage;
   final String rocketName;
@@ -9,13 +11,13 @@ class LaunchModel {
   final String mapURL;
 
   LaunchModel.fromJSON(Map<String, dynamic> jsonMap) :
-    launchImage = jsonMap['rocket']['imageURL'],
-    rocketName = jsonMap['name'],
+    launchImage = Utilities.verifyJsonString(jsonMap['rocket'], 'imageURL'),
+    rocketName = Utilities.verifyJsonString(jsonMap, 'name'),
     description = getMissions(jsonMap),
-    launchStart = jsonMap['windowstart'],
-    launchEnd = jsonMap['windowend'],
-    wiki = jsonMap['rocket']['wikiURL'],
-    location = jsonMap['location']['name'],
+    launchStart = Utilities.verifyJsonString(jsonMap, 'windowstart'),
+    launchEnd = Utilities.verifyJsonString(jsonMap, 'windowend'),
+    wiki = Utilities.verifyJsonString(jsonMap['rocket'], 'wikiURL'),
+    location = Utilities.verifyJsonString(jsonMap['location'], 'name'),
     mapURL = getLaunchPadLocation(jsonMap);
 
   static String getMissions(Map<String, dynamic> jsonMap) {

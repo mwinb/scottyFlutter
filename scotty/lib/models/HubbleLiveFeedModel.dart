@@ -1,3 +1,5 @@
+import 'Utilities.dart';
+
 class HubbleLiveFeedModel {
   final String image;
   final String title;
@@ -6,16 +8,11 @@ class HubbleLiveFeedModel {
   final String articleLink;
 
   HubbleLiveFeedModel.fromJSON(Map<String, dynamic> jsonMap) :
-        image = jsonMap['image_square'],
-        title = jsonMap["title"],
-        description = jsonMap["description"],
-        publicationDate = getBetterDate(jsonMap["pub_date"]),
-        articleLink = jsonMap["link"];
-
-  static String getBetterDate(String ogDate) {
-    DateTime newDate = DateTime.parse(ogDate);
-    String newDateString = newDate.toLocal().toString();
-    int stringOffset = newDateString.length - 4;
-    return newDateString.substring(0, stringOffset);
-  }
+    image = Utilities.verifyJsonString(jsonMap, 'image_square_large'),
+    title = Utilities.verifyJsonString(jsonMap, 'title'),
+    description = Utilities.verifyJsonString(jsonMap, 'description'),
+    articleLink = Utilities.verifyJsonString(jsonMap, 'link'),
+    publicationDate = Utilities.getFormattedDate(
+      Utilities.verifyJsonString(jsonMap, 'pub_date')
+    );
 }

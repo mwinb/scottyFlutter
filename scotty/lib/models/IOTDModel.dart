@@ -1,3 +1,5 @@
+import 'package:scotty/models/Utilities.dart';
+
 class IOTDModel {
   final String url;
   final String title;
@@ -7,10 +9,11 @@ class IOTDModel {
   final String explanation;
 
   IOTDModel.fromJSON(Map<String, dynamic> jsonMap) :
-        url = jsonMap['url'],
-        title = jsonMap['title'],
-        copyright = jsonMap['copyright'],
-        publicationDate = jsonMap['date'],
-        mediaType = jsonMap['media_type'],
-        explanation = jsonMap['explanation'];
+        url = Utilities.verifyJsonString(jsonMap, 'url'),
+        title = Utilities.verifyJsonString(jsonMap, 'title'),
+        copyright = Utilities.verifyJsonString(jsonMap, 'copyright'),
+        publicationDate = Utilities.verifyJsonString(jsonMap, 'date'),
+        mediaType = Utilities.verifyJsonString(jsonMap, 'media_type'),
+        explanation = Utilities.verifyJsonString(jsonMap, 'explanation');
+  
 }
