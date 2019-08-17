@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         '/spaceFlightReports': (context) => SpaceFlightReportsScreen(),
         '/nasaLiveStream': (context) => NasaLiveStream(),
         '/hubbleLiveFeed': (context) => HubbleFeedScreen(),
-        '/astroBin': (context) => AstroBinScreen(),
+        '/astroBin': (context) => new AstroBinScreen(),
         '/launchLibrary': (context) => LaunchLibraryScreen(),
         '/IOTD': (context) => IOTDScreen(),
       },
