@@ -2,16 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import 'package:flutter/material.dart';
-import 'package:scotty/screens/astroBinScreen.dart';
-import 'package:scotty/screens/spaceFlightBlogsScreen.dart';
-import 'package:scotty/screens/spaceFlightNewsScreen.dart';
-import 'package:scotty/screens/spaceFlightReportsScreen.dart';
-import 'package:scotty/screens/launchLibraryScreen.dart';
-import 'package:scotty/screens/HubbleFeedScreen.dart';
-import 'package:scotty/screens/IOTDScreen.dart';
-import 'package:scotty/widgets/dashboard.dart';
-import 'package:scotty/widgets/nasaLiveStream.dart';
 import 'package:scotty/theme/style.dart';
+import 'package:scotty/widgets/astro_bin/astro_bin_screen.dart';
+import 'package:scotty/widgets/dashboard_screen.dart';
+import 'package:scotty/widgets/hubble_live_feed/hubble_live_feed_screen.dart';
+import 'package:scotty/widgets/iotd/iotd_screen.dart';
+import 'package:scotty/widgets/launch_library/launch_library_screen.dart';
+import 'package:scotty/widgets/space_flight_news/blog_screen/space_flight_blog_screen.dart';
+import 'package:scotty/widgets/space_flight_news/news_screen/space_flight_news_screen.dart';
+import 'package:scotty/widgets/space_flight_news_reports/space_flight_reports_screen.dart';
 
 void main() => runApp(new MyApp());
 
@@ -27,9 +26,8 @@ class MyApp extends StatelessWidget {
         '/spaceFlightNews': (context) => SpaceFlightNewsScreen(),
         '/spaceFlightBlogs': (context) => SpaceFlightBlogsScreen(),
         '/spaceFlightReports': (context) => SpaceFlightReportsScreen(),
-        '/nasaLiveStream': (context) => NasaLiveStream(),
         '/hubbleLiveFeed': (context) => HubbleFeedScreen(),
-        '/astroBin': (context) => new AstroBinScreen(),
+        '/astroBin': (context) => AstroBinScreen(),
         '/launchLibrary': (context) => LaunchLibraryScreen(),
         '/IOTD': (context) => IOTDScreen(),
       },
