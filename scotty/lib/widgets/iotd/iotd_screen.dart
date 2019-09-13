@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:scotty/common/Utilities.dart';
 import 'package:scotty/widgets/iotd/iotd_request.dart';
 import 'package:scotty/widgets/iotd/iotd_model.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class IOTDScreen extends StatefulWidget {
   @override
@@ -34,7 +34,7 @@ class _IOTDScreenState extends State<IOTDScreen> {
     if (_image.mediaType == 'image') {
       widget = InkWell(
         onTap: () {
-          _launchURL('https://apod.nasa.gov/apod/astropix.html');
+          Utilities.launchURL('https://apod.nasa.gov/apod/astropix.html');
         },
         child: Container(
             constraints: new BoxConstraints.expand(
@@ -74,7 +74,7 @@ class _IOTDScreenState extends State<IOTDScreen> {
                   )])));
 
     } else if (_image.mediaType == 'video') {
-      _launchURL(_image.url);
+      Utilities.launchURL(_image.url);
     }
     return widget;
   }
@@ -83,13 +83,5 @@ class _IOTDScreenState extends State<IOTDScreen> {
     final image = await getImageOfTheDay();
     _image = image;
     setState(() => _image);
-  }
-
-  _launchURL(url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
   }
 }

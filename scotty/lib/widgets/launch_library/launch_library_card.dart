@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:scotty/common/Utilities.dart';
 import 'package:scotty/widgets/launch_library/launch_library_model.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class LaunchLibraryTile extends StatelessWidget {
   final LaunchModel _launchModel;
@@ -9,17 +9,19 @@ class LaunchLibraryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Column(children: <Widget>[
         makeLaunchLibraryCard(_launchModel),
-  ]);
+      ]);
 }
 
 Card makeLaunchLibraryCard(LaunchModel launch) {
   return Card(
       margin: new EdgeInsets.all(8.0),
       child: Container(
-        decoration: BoxDecoration(color: Colors.black87, ),
+        decoration: BoxDecoration(
+          color: Colors.black87,
+        ),
         child: new InkWell(
           onTap: () {
-            _launchURL(launch.wiki);
+            Utilities.launchURL(launch.wiki);
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -80,7 +82,7 @@ Card makeLaunchLibraryCard(LaunchModel launch) {
               SizedBox(height: 20.0),
               new InkWell(
                 onTap: () {
-                  _launchURL(launch.mapURL);
+                  Utilities.launchURL(launch.mapURL);
                 },
                 child: new Text(
                   "${launch.location}",
@@ -97,12 +99,4 @@ Card makeLaunchLibraryCard(LaunchModel launch) {
           ),
         ),
       ));
-}
-
-_launchURL(url) async {
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
 }

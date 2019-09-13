@@ -41,7 +41,6 @@ class _AstroBinScreenState extends State<AstroBinScreen> {
     }
   }
 
-
   void listenForAstroBinPhotos() async {
     final stream = await getAstroBinPhotos();
     for (var item in stream) {
@@ -49,5 +48,4 @@ class _AstroBinScreenState extends State<AstroBinScreen> {
     }
     setState(() => _articles);
   }
-
 }

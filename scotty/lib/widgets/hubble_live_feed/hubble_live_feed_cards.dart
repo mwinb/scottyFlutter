@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:scotty/common/Utilities.dart';
 import 'package:scotty/widgets/hubble_live_feed/hubble_live_feed_model.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:scotty/widgets/network_image_ssl.dart';
 
 class HubbleLiveCard extends StatelessWidget {
@@ -13,14 +13,6 @@ class HubbleLiveCard extends StatelessWidget {
   ]);
 }
 
-_launchURL(url) async {
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
-
 Widget makeHubbleLiveFeedCard(HubbleLiveFeedModel feed, BuildContext context) {
   return Card(
       margin: new EdgeInsets.all(8.0),
@@ -30,7 +22,7 @@ Widget makeHubbleLiveFeedCard(HubbleLiveFeedModel feed, BuildContext context) {
           ),
           child: new InkWell(
             onTap: () {
-              _launchURL(feed.articleLink);
+              Utilities.launchURL(feed.articleLink);
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
